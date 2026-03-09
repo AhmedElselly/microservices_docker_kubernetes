@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: posts-deployment
+specs:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: posts
+  template:
+    metadata:
+      labels:
+        app: posts
+    spec:
+      containers:
+        - name: posts
+        image: ahmedelselly/posts_kub:0.0.1
+        ports:
+          - containerPort: 4000
+        # env:
+        #   - name: POSTS_SERVICE_HOST
+        #     value: posts
+        #   - name: POSTS_SERVICE_PORT
+        #     value: "4000"
