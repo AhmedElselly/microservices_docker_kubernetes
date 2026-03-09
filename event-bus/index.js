@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
+const PORT = 4005;
 
 const app = express();
 app.use(bodyParser.json());
@@ -31,6 +32,6 @@ app.get("/events", (req, res) => {
   res.send(events);
 });
 
-app.listen(4005, () => {
+app.listen(PORT, () => {
   console.log("Listening on 4005");
 });
