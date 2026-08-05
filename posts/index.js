@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
