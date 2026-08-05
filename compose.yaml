@@ -1,0 +1,15 @@
+services:
+  posts:
+    build: ./posts
+    ports:
+      - "4000:4000"
+
+  comments:
+    build: ./comments
+    ports:
+      - "4001:4001"
+
+  event-bus:
+    build: ./event-bus
+    ports:
+      - "4005:4005"
