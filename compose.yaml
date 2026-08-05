@@ -15,3 +15,21 @@ services:
     build: ./event-bus
     ports:
       - "4005:4005"
+  postgres:
+    image: postgres:17
+
+    container_name: postgres-db
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: myapp
+
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

@@ -3,7 +3,31 @@ const express = require("express");
 const { randomBytes } = require("crypto");
 const cors = require("cors");
 const axios = require("axios");
+const { Client } = require("pg");
+
 const PORT = 4000;
+
+const client = new Client({
+  host: "postgres",
+  port: 5432,
+  user: "postgres",
+  password: "postgres",
+  database: "myapp",
+});
+
+const start = async () => {
+  await client.connect();
+
+  console.log({ client });
+
+  console.log("✅ Connected to PostgreSQL!");
+
+  const res = await client.query("SELECT NOW()");
+
+  console.log(res.rows);
+};
+
+start();
 
 const app = express();
 app.use(express.json());
